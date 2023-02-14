@@ -1,0 +1,86 @@
+
+body{
+  background-color: #000;
+  
+}
+.content::-webkit-scrollbar { width: 0 !important }
+html {
+  scroll-behavior: smooth;
+}
+p , h1,h2,h3,h4,h5 {
+  color: white;
+}
+h1,a{
+  color: #F3E08E;
+}
+.banner {
+  height:100vh;
+  width: 100%;
+  margin: 0px;
+  background-position: right;
+  background-size: cover;
+  background-repeat: none;
+  background-image: url('/banner/5.png');
+  padding-top: 50px;
+  padding-left: 10px;
+  
+}
+.banner {
+  
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  
+}
+.banner .title {
+  font-size: 13rem;
+  color: #F3E08E;
+  margin-right: auto;
+  margin-bottom: 0px;
+}
+.banner .title_bottom {
+  font-size: 2rem;
+  color: #F3E08E;
+  margin-right: auto;
+  line-height: 0.9;
+  
+}
+.banner .title_aka{
+  font-size: 1rem;
+  color: #F3E08E;
+  margin-right: auto;
+}
+
+.banner .bottom {
+  height: 2rem;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent,rgb(0,0,0) );
+  margin-top: auto;
+}
+
+.quote {
+  font-style: italic;
+}
+
+
+@media (min-width: 300px) {
+.banner {
+  height:22rem;
+  width: auto;
+  }
+  .banner .title {
+  font-size: 5rem;
+  
+}
+
+.banner .title_bottom {
+  font-size: 1.5rem;
+  
+}
+.banner .title_aka{
+  font-size: 1rem;
+  
+}
+}

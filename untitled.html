@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Smooth Scroll with Section Stops</title>
+    <style>
+      /* Styles for the sections */
+      section {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+        color: white;
+      }
+      
+      /* Styles for the section stops */
+      .section-stop {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background-color: gray;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <section style="background-color: red;">Section 1</section>
+    <section style="background-color: blue;">Section 2</section>
+    <section style="background-color: green;">Section 3</section>
+    <div class="section-stop"></div>
+    <script>
+      // Get all the sections and the section stop element
+      const sections = document.querySelectorAll('section');
+      const sectionStop = document.querySelector('.section-stop');
+      
+      // Set the height of the section stop element based on the number of sections
+      sectionStop.style.height = `${100 / sections.length}%`;
+      
+      // Smooth scroll to the next section when the user scrolls
+      let currentSectionIndex = 0;
+      let isScrolling = false;
+      function handleScroll() {
+        if (!isScrolling) {
+          isScrolling = true;
+          const nextSectionIndex = currentSectionIndex + 1;
+          if (nextSectionIndex < sections.length) {
+            const nextSection = sections[nextSectionIndex];
+            const currentSection = sections[currentSectionIndex];
+            const currentSectionHeight = currentSection.getBoundingClientRect().height;
+            const sectionStopOffset = sectionStop.getBoundingClientRect().top;
+            const scrollDistance = nextSection.offsetTop - sectionStopOffset;
+            const scrollDuration = Math.abs(scrollDistance / (currentSectionHeight * 0.3));
+            window.scrollTo({
+              top: sectionStopOffset,
+              behavior: 'smooth'
+            });
+            setTimeout(() => {
+              currentSectionIndex = nextSectionIndex;
+              isScrolling = false;
+            }, scrollDuration * 1000);
+          }
+        }
+      }
+      window.addEventListener('scroll', handleScroll);
+    </script>
+  </body>
+</html>
