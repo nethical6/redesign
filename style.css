@@ -1,7 +1,7 @@
 
 body{
   background-color: #000;
-  
+  font-family: 'Roboto Mono', monospace; 
 }
 .content::-webkit-scrollbar { width: 0 !important }
 html {
@@ -36,7 +36,7 @@ h1,a{
 }
 .banner .title {
   font-size: 13rem;
-  color: #F3E08E;
+  color: #FFFF00;
   margin-right: auto;
   margin-bottom: 0px;
 }
@@ -76,11 +76,11 @@ h1,a{
 }
 
 .banner .title_bottom {
-  font-size: 1.5rem;
+  font-size: 1rem;
   
 }
 .banner .title_aka{
-  font-size: 1rem;
+  font-size: 0.5rem;
   
 }
 }
