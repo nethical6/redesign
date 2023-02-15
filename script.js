@@ -14,3 +14,20 @@ fetch("./data/quotes.json")
           );
 }
 
+const audio = document.querySelector("audio");
+const btn = document.querySelector("button");
+
+      btn.addEventListener("click", function () {
+  if (audio.paused) {
+    audio.volume = 0.2;
+    audio.play();
+        btn.innerHTML= "Pause";
+  } else {
+    audio.pause();
+    btn.innerHTML= "Play";
+    }
+ });
+
+function playMusic() {
+  
+}
